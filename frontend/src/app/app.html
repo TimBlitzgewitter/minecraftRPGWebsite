@@ -1,0 +1,22 @@
+<h1>Minecraft Spieler-Statistiken</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>UUID</th>
+      <th>Klasse</th>
+      <th>Level</th>
+      <th>Titel</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (player of players(); track player.uuid) {
+      <tr>
+        <td>{{ player.uuid }}</td>
+        <td>{{ player.class }}</td>
+        <td>{{ player.level }}</td>
+        <td>{{ player.active_title || 'Kein Titel' }}</td>
+      </tr>
+    }
+  </tbody>
+</table>
