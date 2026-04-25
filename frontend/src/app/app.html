@@ -1,22 +1,38 @@
-<h1>Minecraft Spieler-Statistiken</h1>
+<nav class="main-nav">
+  <a routerLink="/home" class="logo">RPG-Stats</a>
+  
+  <ul class="nav-links">
+    <li><a routerLink="/leaderboard">Leaderboard</a></li>
+  </ul>
+  
+  <div class="auth-buttons">
+  <ng-container *ngIf="!authService.currentUser()">
+    <button class="btn-secondary" routerLink="/login">Login</button>
+    <button class="btn-primary" routerLink="/register">Register</button>
+  </ng-container>
 
-<table>
-  <thead>
-    <tr>
-      <th>UUID</th>
-      <th>Klasse</th>
-      <th>Level</th>
-      <th>Titel</th>
-    </tr>
-  </thead>
-  <tbody>
-    @for (player of players(); track player.uuid) {
-      <tr>
-        <td>{{ player.uuid }}</td>
-        <td>{{ player.class }}</td>
-        <td>{{ player.level }}</td>
-        <td>{{ player.active_title || 'Kein Titel' }}</td>
-      </tr>
-    }
-  </tbody>
-</table>
+  <ng-container *ngIf="authService.currentUser()">
+    <div class="user-profile" style="display: flex; align-items: center; gap: 15px;">
+      
+      <span class="user-name">
+        {{ authService.currentUser().discordName }}
+      </span>
+      
+      <img [src]="'https://cdn.discordapp.com/avatars/' + authService.currentUser().discordId + '/' + authService.currentUser().avatar + '.png'" 
+           class="nav-avatar" 
+           style="width: 40px; height: 40px; border-radius: 50%;">
+           
+      <button (click)="authService.logout()" class="btn-logout">Logout</button>
+      
+    </div>
+  </ng-container>
+</div>
+</nav>
+
+<main class="content-area">
+  <router-outlet></router-outlet>
+</main>
+
+<footer>
+  <a routerLink="/impressum">Impressum & Datenschutz</a>
+</footer>

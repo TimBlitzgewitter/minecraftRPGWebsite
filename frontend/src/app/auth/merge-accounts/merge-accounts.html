@@ -1,0 +1,29 @@
+<div class="auth-container">
+  <div class="auth-box merge-box">
+    <div class="warning-icon">⚠️</div>
+    <h2>Account gefunden!</h2>
+    <p class="subtitle">
+      Die E-Mail <strong>{{ email }}</strong> wird bereits von einem bestehenden Account genutzt.
+    </p>
+
+    <div class="info-card">
+      <p>Möchtest du deinen <strong>Discord-Account</strong> mit diesem bestehenden Konto verknüpfen? So behältst du alle deine Fortschritte!</p>
+    </div>
+
+    <div class="action-buttons">
+      <button class="btn-primary full-width" (click)="onMerge()">
+        Ja, Accounts zusammenführen
+      </button>
+
+      <div class="divider"><span>ODER</span></div>
+
+      <button class="btn-secondary full-width" (click)="onNoMerge()">
+        Nein, separaten Discord-Account erstellen
+      </button>
+    </div>
+
+    <p class="warning-text">
+      * Hinweis: Wenn du die Accounts nicht zusammenführst, kannst du sie später nicht mehr verbinden.
+    </p>
+  </div>
+</div>

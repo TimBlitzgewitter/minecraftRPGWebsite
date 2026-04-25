@@ -1,0 +1,88 @@
+.hero-section {
+  /* Nutze hier später ein episches Minecraft-Hintergrundbild */
+  background-color: #2b2b2b; 
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://www.minecraft.net/content/dam/games/minecraft/key-art/Games_Subnav_Minecraft-300x465.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.content-wrapper {
+  text-align: center;
+}
+
+.mc-title {
+  color: white;
+  font-size: 4rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.8); /* Der klobige Text-Schatten */
+  margin-bottom: 2rem;
+}
+
+/* --- Der 3D Server Status --- */
+.status-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  background: #1e1e1e;
+  border: 3px solid #000;
+  padding: 10px 25px;
+  margin-bottom: 3rem;
+  box-shadow: 4px 4px 0px #000; /* Der 3D Block-Schatten */
+}
+
+.status-indicator {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #000;
+}
+.status-indicator.online { background-color: #3ce63c; box-shadow: inset -2px -2px 0px rgba(0,0,0,0.3); }
+.status-indicator.offline { background-color: #e63c3c; box-shadow: inset -2px -2px 0px rgba(0,0,0,0.3); }
+
+.status-text {
+  color: white;
+  font-size: 1.2rem;
+  font-family: monospace; /* Minecraft-ähnliche Schrift */
+  margin: 0;
+}
+.highlight { color: #55ff55; font-weight: bold; }
+
+/* --- Die 3D Minecraft Buttons --- */
+.action-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.mc-button {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  border: 3px solid #000;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.mc-button.primary {
+  background-color: #3b8526; /* Minecraft Grün */
+  /* Der Schatten simuliert die Kante des 3D Blocks */
+  box-shadow: 0px 6px 0px #1e4514, 0px 6px 0px 3px #000; 
+}
+
+.mc-button.secondary {
+  background-color: #6a6a6a; /* Stein Grau */
+  box-shadow: 0px 6px 0px #3a3a3a, 0px 6px 0px 3px #000;
+}
+
+/* Der Klick-Effekt: Der Button wird nach unten gedrückt, der Schatten schrumpft */
+.mc-button:active {
+  transform: translateY(6px);
+  box-shadow: 0px 0px 0px transparent, 0px 0px 0px 3px #000;
+}

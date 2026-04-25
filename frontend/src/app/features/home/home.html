@@ -1,0 +1,22 @@
+<div class="hero-section">
+  <div class="content-wrapper">
+    <h1 class="mc-title">Willkommen auf<br>RPG-Craft</h1>
+    
+    <div class="status-box">
+      @if (serverStatus().online) {
+        <div class="status-indicator online"></div>
+        <p class="status-text">
+          <span class="highlight">{{ serverStatus().players }}</span> / {{ serverStatus().maxPlayers }} Spieler online
+        </p>
+      } @else {
+        <div class="status-indicator offline"></div>
+        <p class="status-text">Server ist offline</p>
+      }
+    </div>
+
+    <div class="action-buttons">
+      <button class="mc-button primary" routerLink="/register">Jetzt Spielen</button>
+      <button class="mc-button secondary" routerLink="/leaderboard">Zum Leaderboard</button>
+    </div>
+  </div>
+</div>

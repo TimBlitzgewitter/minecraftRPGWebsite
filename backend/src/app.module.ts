@@ -1,15 +1,18 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppController } from './app.controller'; // <-- WICHTIG: Import nicht vergessen!
-import { AppService } from './app.service';       // <-- WICHTIG: Import nicht vergessen!
+import { AppController } from './app.controller'; 
+import { AppService } from './app.service';       
 import { PlayerStats } from './player-stats.entity';
+import { AuthModule } from './auth/auth.module';
+import { WebUser } from './users/web-user.entity';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
     }),
+    AuthModule,
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
@@ -20,14 +23,18 @@ import { PlayerStats } from './player-stats.entity';
         username: configService.get<string>('DB_USERNAME'),
         password: configService.get<string>('DB_PASSWORD'),
         database: configService.get<string>('DB_DATABASE'),
-        entities: [PlayerStats],
-        synchronize: false,
+        
+        
+        entities: [PlayerStats, WebUser], 
+        
+        synchronize: false, 
+        
         logging: true,
       }),
     }),
-    TypeOrmModule.forFeature([PlayerStats]),
+    
+    TypeOrmModule.forFeature([PlayerStats]), 
   ],
-  // Diese beiden Zeilen haben in meinem letzten Code-Beispiel gefehlt:
   controllers: [AppController],
   providers: [AppService],
 })

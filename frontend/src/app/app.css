@@ -1,0 +1,94 @@
+/* --- Globale Navigations-Stile --- */
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  background-color: var(--box-bg);
+  border-bottom: 3px solid var(--border-color);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* --- 3D Buttons (Minecraft / RPG Style) --- */
+.btn-primary, .btn-secondary {
+  padding: 10px 20px;
+  border: 2px solid #000;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.1s;
+  position: relative;
+}
+
+/* Goldener Primary Button (Register) */
+.btn-primary {
+  background-color: #d4af37;
+  color: #111;
+  box-shadow: 0 4px 0 #8b6d0f, 0 4px 0 2px #000; /* 3D Kante & Rahmen */
+}
+
+/* Grauer Secondary Button (Login) */
+.btn-secondary {
+  background-color: #555;
+  color: #fff;
+  box-shadow: 0 4px 0 #333, 0 4px 0 2px #000;
+}
+
+/* Klick-Effekt für beide */
+.btn-primary:active, .btn-secondary:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 transparent, 0 0 0 2px #000;
+}
+
+/* --- Theme & Language Buttons --- */
+.icon-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-right: 15px;
+  padding-right: 15px;
+  border-right: 1px solid var(--border-color);
+}
+
+.icon-btn {
+  background: var(--bg-color); /* Nutzt den Hintergrund der Seite */
+  border: 2px solid var(--border-color);
+  border-radius: 4px; /* Eckiger/Blockiger Look passt besser zum RPG */
+  width: 42px;
+  height: 42px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 0 var(--border-color); /* Kleiner 3D Schatten */
+  transition: all 0.1s;
+}
+
+.icon-btn:hover {
+  background: var(--border-color);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--border-color);
+}
+
+.icon-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 0 0 0 transparent;
+}
+
+/* --- Footer --- */
+footer {
+  margin-top: 50px;
+  padding: 2rem;
+  text-align: center;
+  border-top: 2px solid var(--border-color);
+  background: rgba(0,0,0,0.1);
+}
+
+footer a {
+  color: var(--primary-gold);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover { text-decoration: underline; }

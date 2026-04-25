@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+/* Diese Variablen sind jetzt GLOBAL für das ganze Projekt verfügbar */
+:root {
+  --bg-color: #1a1a1a;
+  --text-color: #ffffff;
+  --box-bg: #222222;
+  --border-color: #444444;
+  --primary-gold: #d4af37;
+}
+
+/* Wenn das Theme gewechselt wird, überschreiben wir NUR diese Werte */
+body.light-theme {
+  --bg-color: #f4f4f9;
+  --text-color: #111111;
+  --box-bg: #ffffff;
+  --border-color: #cccccc;
+  --primary-gold: #b8860b;
+}
+
+/* WICHTIG: Die Standard-Stile für den Body */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Lato', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

@@ -1,0 +1,33 @@
+<div class="auth-container">
+  <div class="auth-box">
+    <h2>Abenteuer beginnen</h2>
+    <p class="subtitle">Erstelle einen Account für das Web-Dashboard.</p>
+
+    <button class="btn-discord" (click)="loginWithDiscord()">
+      <img src="https://assets-global.website-files.com/6257adef9a2dc8d4e57d8eca/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg" alt="Discord" class="discord-icon">
+      Schnell-Login mit Discord
+    </button>
+
+    <div class="divider"><span>ODER</span></div>
+
+    <form class="auth-form">
+      <div class="form-group">
+        <label>Benutzername</label>
+        <input type="text" placeholder="Dein Name">
+      </div>
+      <div class="form-group">
+        <label>E-Mail Adresse</label>
+        <input type="email" placeholder="steve@minecraft.net">
+      </div>
+      <div class="form-group">
+        <label>Passwort</label>
+        <input type="password" placeholder="••••••••">
+      </div>
+      <button type="button" class="btn-primary">Account erstellen</button>
+    </form>
+
+    <p class="switch-page">
+      Bereits ein Abenteurer? <a routerLink="/login">Zum Login</a>
+    </p>
+  </div>
+</div>

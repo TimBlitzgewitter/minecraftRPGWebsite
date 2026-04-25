@@ -1,0 +1,78 @@
+.leaderboard-box {
+  max-width: 800px;
+  margin: 2rem auto;
+  font-family: Arial, sans-serif;
+  background-color: var(--box-bg); /* Statt #1a1a1a */
+  color: var(--text-color);       /* Statt white */
+  border: 1px solid var(--border-color);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+}
+
+.category-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.category-buttons button {
+  padding: 10px 20px;
+  background: #333;
+  color: white;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.category-buttons button:hover {
+  background: #444;
+}
+
+/* Der aktive Button leuchtet auf */
+.category-buttons button.active {
+  background: #2b5c8f;
+  border-color: #4da6ff;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  padding: 12px;
+  background-color: #222;
+  border-bottom: 2px solid #444;
+}
+
+.sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.sortable:hover {
+  background-color: #333;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #333;
+}
+
+/* Top 3 Highlighting */
+tr.rank-1 { background-color: rgba(255, 215, 0, 0.15); font-weight: bold;}
+tr.rank-2 { background-color: rgba(192, 192, 192, 0.1); }
+tr.rank-3 { background-color: rgba(205, 127, 50, 0.1); }
+
+.rank-cell {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.player-name {
+  font-weight: bold;
+}

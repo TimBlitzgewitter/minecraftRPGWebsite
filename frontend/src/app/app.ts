@@ -1,52 +1,38 @@
-import { Component, signal, inject, OnInit } from '@angular/core'; // <-- Hier war der Fehler!
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-// Wir definieren ein Interface, damit TypeScript weiß, welche Felder existieren
-export interface PlayerStats {
-  uuid: string;
-  level: number;
-  exp: number;
-  class: string;
-  secondary_class: string;
-  reputation: number;
-  active_title?: string;
-}
+import { RouterOutlet, RouterModule, ActivatedRoute, Router } from '@angular/router';
+import { ThemeService } from './core/services/theme.service';
+import { AuthService } from './core/services/auth.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterOutlet, RouterModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App implements OnInit {
-  protected readonly title = signal('Minecraft Stats Explorer');
+export class App implements OnInit { // OnInit implementieren
+  public themeService = inject(ThemeService);
+  public authService = inject(AuthService); // AuthService injizieren
   
-  // 1. HttpClient injizieren
-  private http = inject(HttpClient);
-
-  // 2. Ein Signal für die Spieler-Liste (Standardwert ist ein leeres Array)
-  protected players = signal<PlayerStats[]>([]);
-  
-  // 3. Ein Signal für Fehlermeldungen
-  protected errorMessage = signal<string | null>(null);
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
 
   ngOnInit() {
-    this.ladeSpielerDaten();
-  }
-
-  ladeSpielerDaten() {
-    // Anfrage an das NestJS-Backend (Port 3000)
-    this.http.get<PlayerStats[]>('http://localhost:3000/api/players').subscribe({
-      next: (daten: PlayerStats[]) => {
-        console.log('Daten erfolgreich empfangen:', daten);
-        this.players.set(daten);
-        this.errorMessage.set(null);
-      },
-      error: (fehler: HttpErrorResponse) => {
-        console.error('Verbindungsfehler:', fehler);
-        this.errorMessage.set('Konnte keine Verbindung zum Backend aufbauen.');
+    // Hier lauschen wir auf die URL-Parameter
+    this.route.queryParams.subscribe(params => {
+      const token = params['token'];
+      
+      if (token) {
+        console.log('Token in URL gefunden, verarbeite Session...');
+        // 1. Token im AuthService & LocalStorage speichern
+        this.authService.setSession(token);
+        
+        // URL säubern
+        this.router.navigate([], {
+          queryParams: { token: null },
+          queryParamsHandling: 'merge'
+        });
       }
     });
   }

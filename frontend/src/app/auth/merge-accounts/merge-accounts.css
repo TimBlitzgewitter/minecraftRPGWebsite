@@ -1,0 +1,37 @@
+.merge-box {
+  border: 2px solid #d4af37;
+  max-width: 450px;
+}
+
+.warning-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.info-card {
+  background: rgba(212, 175, 55, 0.1);
+  border-left: 4px solid #d4af37;
+  padding: 15px;
+  margin: 20px 0;
+  text-align: left;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.warning-text {
+  margin-top: 20px;
+  font-size: 0.8rem;
+  color: #ff6b6b;
+  font-style: italic;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

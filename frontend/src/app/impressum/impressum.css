@@ -1,0 +1,14 @@
+.content-box {
+  max-width: 800px;
+  margin: 2rem auto;
+  background-color: #1a1a1a;
+  color: #ddd;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+  border-top: 4px solid #d4af37;
+}
+
+h1 { color: #fff; margin-bottom: 2rem; }
+h3 { color: #d4af37; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+p { line-height: 1.6; }
